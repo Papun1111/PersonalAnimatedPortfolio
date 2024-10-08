@@ -1,7 +1,8 @@
 import React from "react";
 import { BallCanvas } from "./canvas";
 import { technologies } from "../constants";
-import sun from "../assets/sun.jpg"
+import sun from "../assets/sun.jpg";
+
 const Tech = () => {
   return (
     <div className="relative min-h-screen">
@@ -28,7 +29,7 @@ const Tech = () => {
                   <BallCanvas icon={technology.icon} />
                   
                   {/* Tooltip */}
-                  <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span className="bg-slate-800 text-cyan-300 px-3 py-1 rounded-full text-sm whitespace-nowrap shadow-lg">
                       {technology.name}
                     </span>
