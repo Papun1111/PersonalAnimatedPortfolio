@@ -58,6 +58,8 @@ const Navbar = () => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-gray-300 hover:text-white transition-colors duration-300"
+                aria-expanded={isOpen}
+                aria-controls="mobile-menu"
               >
                 <svg
                   className="h-6 w-6"
@@ -87,6 +89,7 @@ const Navbar = () => {
 
           {/* Mobile Menu */}
           <div
+            id="mobile-menu"
             className={`${
               isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
             } md:hidden overflow-hidden transition-all duration-300 ease-in-out`}
