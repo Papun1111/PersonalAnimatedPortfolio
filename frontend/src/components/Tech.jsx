@@ -13,13 +13,13 @@ const Tech = () => {
       />
       
       {/* Content Container with gradient overlay */}
-      <div className="relative z-10 min-h-screen bg-gradient-to-b from-slate-900/90 to-slate-800/90 py-20">
+      <div className="relative z-10 min-h-screen bg-gradient-to-b from-slate-900/90 to-slate-800/90 py-10 md:py-20">
         <div className="container mx-auto">
-          <div className="flex flex-row flex-wrap justify-center gap-8 px-4">
+          <div className="flex flex-col md:flex-row flex-wrap justify-center gap-8 px-4">
             {technologies.map((technology) => (
               <div
                 key={technology.name}
-                className="group relative w-28 h-28 transition-all duration-300 transform hover:scale-110"
+                className="group relative w-24 h-24 sm:w-28 sm:h-28 transition-all duration-300 transform hover:scale-110"
               >
                 {/* Glowing background effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
