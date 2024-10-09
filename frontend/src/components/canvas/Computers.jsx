@@ -9,30 +9,20 @@ const Computers = ({ isMobile }) => {
 
   return (
     <mesh>
-      {isMobile ? (
-        <>
-          {/* Minimal lighting for mobile devices */}
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={0.5} />
-        </>
-      ) : (
-        <>
-          <hemisphereLight intensity={0.15} groundColor='black' />
-          <spotLight
-            position={[-20, 50, 10]}
-            angle={0.12}
-            penumbra={1}
-            intensity={1}
-            castShadow
-            shadow-mapSize={1024}
-          />
-          <pointLight intensity={1} />
-        </>
-      )}
+      <hemisphereLight intensity={0.15} groundColor='black' />
+      <spotLight
+        position={[-20, 50, 10]}
+        angle={0.12}
+        penumbra={1}
+        intensity={1}
+        castShadow
+        shadow-mapSize={1024}
+      />
+      <pointLight intensity={1} />
       <primitive
         object={scene}
-        scale={isMobile ? 0.5 : 0.75} // Adjust scale further for mobile
-        position={isMobile ? [0, -2, -2.2] : [0, -3.25, -1.5]}
+        scale={isMobile ? 0.7 : 0.75}
+        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -45,25 +35,26 @@ const ComputersCanvas = () => {
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
 
+    // Set the initial state based on the current match
     setIsMobile(mediaQuery.matches);
 
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
     };
 
-    mediaQuery.addEventListener('change', handleMediaQueryChange);
+    mediaQuery.addEventListener('change', handleMediaQueryChange); // Use addEventListener instead of addListener
 
     return () => {
-      mediaQuery.removeEventListener('change', handleMediaQueryChange);
+      mediaQuery.removeEventListener('change', handleMediaQueryChange); // Corresponding cleanup
     };
   }, []);
 
   return (
     <Canvas
       frameloop='demand'
-      shadows={!isMobile} // Disable shadows for mobile
-      dpr={isMobile ? [1, 1] : [1, 2]} // Reduce dpr for mobile
-      camera={{ position: [20, 3, 5], fov: isMobile ? 30 : 25 }} // Slightly adjust fov for mobile
+      shadows
+      dpr={[1, 2]}
+      camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
