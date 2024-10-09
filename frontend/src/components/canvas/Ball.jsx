@@ -44,18 +44,20 @@ const Ball = (props) => {
 
 const BallCanvas = ({ icon }) => {
   return (
-    <Canvas
-      frameloop='demand'
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
-    >
-      <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls enableZoom={false} />
-        <Ball imgUrl={icon} />
-      </Suspense>
-
-      <Preload all />
-    </Canvas>
+    <div style={{ width: '100%', height: '100vh', overflow: 'hidden' }}>
+      <Canvas
+        frameloop='demand'
+        dpr={[1, 2]}
+        gl={{ preserveDrawingBuffer: true }}
+        style={{ width: '100%', height: '100%' }} // Ensure the canvas takes full space
+      >
+        <Suspense fallback={<CanvasLoader />}>
+          <OrbitControls enableZoom={true} enablePan={false} /> {/* Allow zoom on mobile */}
+          <Ball imgUrl={icon} />
+        </Suspense>
+        <Preload all />
+      </Canvas>
+    </div>
   );
 };
 
