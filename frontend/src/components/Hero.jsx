@@ -7,13 +7,13 @@ const Hero = () => {
       <div className="absolute inset-0 top-[120px] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main container with responsive flex direction */}
         <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
-          {/* Computer Canvas - Hidden on smallest screens, full width on medium, half on large */}
-          <div className="hidden sm:block w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-[600px] animate-fade-in">
+          {/* Computer Canvas - Full width on all screen sizes */}
+          <div className="w-full h-[300px] sm:h-[400px] lg:h-[600px] animate-fade-in">
             <ComputersCanvas />
           </div>
 
           {/* Content container */}
-          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start">
+          <div className="w-full flex flex-col items-center lg:items-start">
             {/* Decorative line container */}
             <div className="flex flex-row lg:flex-col items-center gap-2 lg:gap-0 mb-6 lg:mb-0">
               <div className="w-4 h-4 lg:w-5 lg:h-5 rounded-full bg-[#915EFF]" />
@@ -54,4 +54,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default Hero;

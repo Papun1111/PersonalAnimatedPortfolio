@@ -6,7 +6,6 @@ import {
     redux,
     tailwind,
     nodejs,
-    mongodb,
     threejs,
   } from "../assets";
   
@@ -25,20 +24,7 @@ import {
     },
   ];
   
-  const services = [
-    {
-      title: "Web Developer",
-      icon: web,
-    },
-    {
-      title: "Backend Developer",
-      icon: backend,
-    },
-    {
-      title: "Content Creator",
-      icon: creator,
-    },
-  ];
+ 
   
   const technologies = [
     {
@@ -58,10 +44,6 @@ import {
       icon: nodejs,
     },
     {
-      name: "MongoDB",
-      icon: mongodb,
-    },
-    {
       name: "Three JS",
       icon: threejs,
     },
@@ -71,4 +53,4 @@ import {
   
   
   
-  export { services, technologies };
+  export { technologies };
