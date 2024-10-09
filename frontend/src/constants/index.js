@@ -2,11 +2,11 @@ import {
     backend,
     creator,
     web,
+    reactjs,
     redux,
     tailwind,
     nodejs,
     mongodb,
-    git,
     threejs,
   } from "../assets";
   
@@ -42,6 +42,10 @@ import {
   
   const technologies = [
     {
+      name: "React JS",
+      icon: reactjs,
+    },
+    {
       name: "Redux Toolkit",
       icon: redux,
     },
@@ -60,10 +64,6 @@ import {
     {
       name: "Three JS",
       icon: threejs,
-    },
-    {
-      name: "git",
-      icon: git,
     },
   ];
   
