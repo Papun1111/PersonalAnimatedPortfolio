@@ -35,17 +35,16 @@ const ComputersCanvas = () => {
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
 
-    // Set the initial state based on the current match
     setIsMobile(mediaQuery.matches);
 
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
     };
 
-    mediaQuery.addEventListener('change', handleMediaQueryChange); // Use addEventListener instead of addListener
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
 
     return () => {
-      mediaQuery.removeEventListener('change', handleMediaQueryChange); // Corresponding cleanup
+      mediaQuery.removeEventListener('change', handleMediaQueryChange);
     };
   }, []);
 
@@ -53,7 +52,7 @@ const ComputersCanvas = () => {
     <Canvas
       frameloop='demand'
       shadows
-      dpr={[1, 2]}
+      dpr={isMobile ? [1, 1] : [1, 2]} // Lower dpr for mobile to reduce resolution
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
